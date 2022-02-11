@@ -137,12 +137,12 @@ hr {
 }
 
 [eth-balance]::before {
-    content: url('/images/icon-ethereum.svg');
+    content: url('images/icon-ethereum.svg');
     margin-right: 0.4rem;
 }
 
 [remaining-time]::before {
-    content: url('/images/icon-clock.svg');
+    content: url('images/icon-clock.svg');
     font-weight: 600;
     margin-right: 0.4rem;
 }
