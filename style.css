@@ -187,3 +187,10 @@ hr {
         width: 90%;
     }
 }
+
+@media screen and (max-width: 500px) {
+    .attribution {
+        display: none;
+    }
+   
+}
