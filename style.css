@@ -22,7 +22,7 @@
 }
 
 html, body {
-    height: 100%;
+    min-height: 100vh;
 }
 
 body {
@@ -33,8 +33,8 @@ body {
 }
 
 .card {
-    height: 33rem;
-    width: 19.5rem;
+    height: fit-content;
+    max-width: 19.5rem;
     background-color: var(--card-bg-color);
     color: var(--soft-blue);
     display: flex;
@@ -43,16 +43,27 @@ body {
     align-items: center;
     gap: 1.1rem;
     border-radius: 0.8rem;
+    padding-bottom: 1rem;
 }
 
-.card-image-container > img {
-    border-radius: 0.4rem;
-}
 
 .card-status {
     display: flex;
     justify-content: space-between;
-    text-align: center;
+    align-items: center;
+    gap: 3.5rem;
+}
+
+.card-status li {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    gap: 0.4rem;
+}
+
+.card-heading a {
+    text-decoration: none;
 }
 
 .card-image-container {
@@ -61,11 +72,6 @@ body {
     position: relative;
 }
 
-.card-image-container > img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
 
 
 .card-content {
@@ -108,36 +114,50 @@ body {
     width: 85%;
 }
 
-hr {
-    color: var(--line-color);
-    background-color: var(--line-color); /* for chrome */
-    border-color: var(--line-color); /* for chrome */
-    border-style: solid; 
+.card-footer {
+    border-top: 1px solid var(--line-color);
+    padding-top: 1rem;
 }
 
-.overlay {
-    height: 100%;
+.card-image-container .card-image {
+    display: block;
     width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.card-image-container .card-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.625rem;
+}
+
+.card-image-container .card-image::before {
+    content: url('images/icon-view.svg');
     position: absolute;
     top: 0;
     left: 0;
-    opacity: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: var(--cyan-with-opacity);
+    border-radius:0.625rem;
+    opacity: 0;
 }
 
-
-.card-content > h1:hover, [creator-name]:hover {
-    color: var(--cyan);
+.card-image-container .card-image:hover::before {
+    opacity: 1;
     cursor: pointer;
 }
 
-.card-image-container:hover .overlay {
-    opacity: 1;
-    background-color: var(--cyan-with-opacity);
+.card-content > h1 a:hover, [creator-name]:hover {
+    color: var(--cyan);
+    cursor: pointer;
 }
-
 
 
 [eth-balance] {
@@ -146,20 +166,11 @@ hr {
     font-size: 0.9rem;
 }
 
-[eth-balance]::before {
-    content: url('images/icon-ethereum.svg');
-    margin-right: 0.4rem;
-}
 
 [remaining-time] {
     font-size: 0.9rem;
 }
 
-[remaining-time]::before {
-    content: url('images/icon-clock.svg');
-    font-weight: 600;
-    margin-right: 0.4rem;
-}
 
 [creator-name] {
     font-weight: 400;
@@ -181,16 +192,15 @@ hr {
     color: var(--cyan);
 }
 
-@media screen and (max-width: 375px) {
-    .card {
-        height: 80%;
-        width: 90%;
-    }
-}
-
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 800px), screen and (max-height: 800px) {
     .attribution {
         display: none;
     }
    
+}
+
+@media screen and (max-width: 375px) {
+    .card {
+        font-size: 0.8rem;
+    }
 }

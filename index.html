@@ -14,20 +14,22 @@
 <body>
   <main class="card">
     <div class="card-image-container card-item">
-      <img src="images/image-equilibrium.jpg" alt="Equilibrium image">
-      <div class="overlay">
-        <img src="images/icon-view.svg" alt="image overlay">
-      </div>
+      <a class="card-image"><img src="images/image-equilibrium.jpg" alt="Equilibrium image"></a>
     </div>
     <div class="card-content card-item">
-      <h1>Equilibrium #3429</h1>
+      <h1 class="card-heading"><a href="#">Equilibrium #3429</a></h1>
       <p>Our Equilibrium collection promotes balance and calm.</p>
     </div>
-    <div class="card-status card-item">
-      <p eth-balance>0.041 ETH</p>
-      <p remaining-time>3 days left</p>
-    </div>
-    <hr class="card-item"/>
+    <ul class="card-status card-item">
+      <li>
+        <img src="images/icon-ethereum.svg" alt="" aria-hidden="true">
+        <p eth-balance>0.041 ETH</p>
+      </li>
+      <li>
+        <img src="images/icon-clock.svg" alt="" aria-hidden="true">
+        <p remaining-time>3 days left</p>
+      </li>
+    </ul>
     <div class="card-footer card-item">
       <div class="avatar-container">
         <img src="images/image-avatar.png" alt="Jules Wyvern">
