@@ -33,30 +33,31 @@ body {
 }
 
 .card {
-    height: 34rem;
-    width: 20rem;
+    height: 33rem;
+    width: 19.5rem;
     background-color: var(--card-bg-color);
     color: var(--soft-blue);
     display: flex;
     flex-shrink: 0;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
-    
+    gap: 1.1rem;
+    border-radius: 0.8rem;
 }
 
-.card, .card-image-container > img {
-    border-radius: 1rem;
+.card-image-container > img {
+    border-radius: 0.4rem;
 }
 
 .card-status {
     display: flex;
     justify-content: space-between;
+    text-align: center;
 }
 
 .card-image-container {
-    height: 50%;
-    margin-top: 1rem;
+    height: 51%;
+    margin-top: 1.3rem;
     position: relative;
 }
 
@@ -66,11 +67,6 @@ body {
     object-fit: cover;
 }
 
-.card-content > h1 {
-    color: var(--white);
-    font-size: 1.2rem;
-    font-weight: 600;
-}
 
 .card-content {
     display: flex;
@@ -79,10 +75,20 @@ body {
     gap: 1rem;
 }
 
+.card-content > h1 {
+    color: var(--white);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.card-content > p {
+    font-weight: 200;
+}
+
 .avatar-container {
-    width: 2.5rem;
-    height: 2.5rem;
-    border: 2px solid var(--white);
+    width: 1.9rem;
+    height: 1.9rem;
+    border: 1px solid var(--white);
     border-radius: 50%;
 }
 
@@ -104,6 +110,9 @@ body {
 
 hr {
     color: var(--line-color);
+    background-color: var(--line-color); /* for chrome */
+    border-color: var(--line-color); /* for chrome */
+    border-style: solid; 
 }
 
 .overlay {
@@ -119,7 +128,7 @@ hr {
 }
 
 
-.card-content > h1:hover, [name]:hover {
+.card-content > h1:hover, [creator-name]:hover {
     color: var(--cyan);
     cursor: pointer;
 }
@@ -134,11 +143,16 @@ hr {
 [eth-balance] {
     color: var(--cyan);
     font-weight: 600;
+    font-size: 0.9rem;
 }
 
 [eth-balance]::before {
     content: url('images/icon-ethereum.svg');
     margin-right: 0.4rem;
+}
+
+[remaining-time] {
+    font-size: 0.9rem;
 }
 
 [remaining-time]::before {
@@ -147,10 +161,25 @@ hr {
     margin-right: 0.4rem;
 }
 
-[name] {
-    font-weight: 600;
+[creator-name] {
+    font-weight: 400;
+    color: var(--white);
 }
 
+[credits] {
+    font-size: 0.9rem;
+}
+
+.attribution {
+    color: var(--white);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.attribution a {
+    color: var(--cyan);
+}
 
 @media screen and (max-width: 375px) {
     .card {
